@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/SensorConfig" xmlns:tns="http://www.example.org/SensorConfig" elementFormDefault="qualified">
+
+    <element name="SensorConfigList" type="tns:SensorConfigListType"></element>
+    
+    <complexType name="SensorConfigListType">
+    	<sequence>
+        <element name="SensorConfig" type="tns:SensorConfigType" minOccurs="1" maxOccurs="unbounded"></element>
+      </sequence>
+    </complexType>
+
+    <complexType name="SensorConfigType">
+    	<sequence>
+    		<element name="SlotNum" minOccurs="1" maxOccurs="1">
+    			<simpleType>
+    				<restriction base="int">
+    					<minInclusive value="1"></minInclusive>
+    					<maxExclusive value="100"></maxExclusive>
+    				</restriction>
+    			</simpleType>
+    		</element>
+    		<element name="Name" type="string" minOccurs="1" maxOccurs="1"></element>
+    		<element name="Threshold" maxOccurs="unbounded"
+    			minOccurs="0" type="tns:ThresholdType">
+    		</element>
+    	</sequence>
+    </complexType>
+
+
+    <complexType name="ThresholdType">
+    	<simpleContent>
+    		<extension base="double">
+    			<attribute name="Level" type="tns:LevelType"></attribute>
+    		</extension>
+    	</simpleContent>
+    </complexType>
+    
+    <simpleType name="LevelType">
+    	<restriction base="string">
+    		<enumeration value="Lower"></enumeration>
+    		<enumeration value="Upper"></enumeration>
+    	</restriction>
+    </simpleType>
+</schema>

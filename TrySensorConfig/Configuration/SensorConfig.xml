@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tns:SensorConfigList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.example.org/SensorConfig SensorConfig.xsd" xmlns:tns="http://www.example.org/SensorConfig">
+    <tns:SensorConfig>
+        <tns:SlotNum>1</tns:SlotNum>
+        <tns:Name>v3_3</tns:Name>
+        <tns:Threshold
+            Level="Lower">10</tns:Threshold>
+        <tns:Threshold
+            Level="Upper">100</tns:Threshold>
+    </tns:SensorConfig>
+    <tns:SensorConfig>
+        <tns:SlotNum>1</tns:SlotNum>
+        <tns:Name>v3_3A</tns:Name>
+        <tns:Threshold
+            Level="Lower">10</tns:Threshold>
+        <tns:Threshold
+            Level="Upper">100</tns:Threshold>
+    </tns:SensorConfig>
+</tns:SensorConfigList>
