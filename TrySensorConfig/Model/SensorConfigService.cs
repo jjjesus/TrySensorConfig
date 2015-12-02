@@ -16,15 +16,18 @@ namespace TrySensorConfig.Model
         private string _xsdPath = @"Configuration/SensorConfig.xsd";
         private string _xmlPath = @"Configuration/SensorConfig.xml";
 
+        public List<SensorConfig> SensorConfigList { get; set; }
+
         public SensorConfigService()
         {
+            SensorConfigList = new List<SensorConfig>();
             validateXml();
             if (_isXmlValid)
             {
                 loadXml();
             }
-
         }
+
         private void validateXml()
         {
             XmlSchemaSet schemaSet = new XmlSchemaSet();
@@ -97,13 +100,21 @@ namespace TrySensorConfig.Model
             {
                 XDocument doc = XDocument.Load(_xmlPath);
                 var sensorConfigs = from item in doc.Descendants(_defaultNS + "SensorConfig")
-                             select item;
+                                    select new SensorConfig()
+                                    {
+                                        Name = item.Element(_defaultNS + "Name").Value,
+                                        SlotNum = int.Parse(item.Element(_defaultNS + "SlotNum").Value),
+                                        SensorThresholdList = (from thresh in item.Elements(_defaultNS + "Threshold")
+                                                               select new SensorThreshold()
+                                                               {
+                                                                   Level = (LevelEnum)Enum.Parse(typeof(LevelEnum), thresh.Attribute("Level").Value, true),
+                                                                   Value = double.Parse(thresh.Value)
+                                                               }).ToList()
+                                    };
                 foreach (var sc in sensorConfigs)
                 {
-                    Console.WriteLine(sc.ToString());
+                    this.SensorConfigList.Add(sc);
                 }
-
-
             }
             catch (Exception e)
             {
