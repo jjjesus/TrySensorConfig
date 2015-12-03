@@ -4,10 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ignore="http://www.galasoft.ch/ignore"
+        xmlns:ViewModel="clr-namespace:TrySensorConfig.ViewModel"
+        xmlns:View="clr-namespace:TrySensorConfig.View"
         mc:Ignorable="d ignore"
-        Height="300"
-        Width="300"
-        Title="MVVM Light Application"
+        Height="600"
+        Width="900"
+        Title="Sensor Config"
         DataContext="{Binding Main, Source={StaticResource Locator}}">
     
     <Window.Resources>
@@ -15,18 +17,27 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Skins/MainSkin.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            <DataTemplate DataType="{x:Type ViewModel:ThresholdsViewModel}">
+                <View:Thresholds/>
+            </DataTemplate>
+
         </ResourceDictionary>
     </Window.Resources>
 
     <Grid x:Name="LayoutRoot">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
 
-        <TextBlock FontSize="36"
-                   FontWeight="Bold"
-                   Foreground="Purple"
-                   Text="{Binding WelcomeTitle}"
-                   VerticalAlignment="Center"
-                   HorizontalAlignment="Center"
-                   TextWrapping="Wrap" />
+        <StackPanel>
+            <TextBlock>Mock</TextBlock>
+            <TextBlock>Navigation</TextBlock>
+        </StackPanel>
+        
+        <Border Grid.Column="1" Margin="5" BorderBrush="#FF7F9DB9" BorderThickness="1">
+            <ContentControl Content="{Binding ThresholdsVm}"/>
+        </Border>
 
     </Grid>
 </Window>

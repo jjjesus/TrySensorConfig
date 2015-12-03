@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="TrySensorConfig.View.Thresholds"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ignore="http://www.galasoft.ch/ignore"
+        xmlns:ViewModel="clr-namespace:TrySensorConfig.ViewModel"
+        xmlns:View="clr-namespace:TrySensorConfig.View"
+        mc:Ignorable="d ignore"
+        DataContext="{Binding Thresholds, Source={StaticResource Locator}}">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Skins/MainSkin.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <DataTemplate  DataType="{x:Type ViewModel:SensorConfigViewModel}">
+                <View:SensorConfigView/>
+            </DataTemplate>            
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid Height="800">
+        <StackPanel>
+            <Expander Background="LightSeaGreen" Header="Slot 1 Sensors" IsExpanded="True" Margin="10, 10, 10, 10">
+                <ListView x:Name="SensorConfigList_1"                    
+                     Grid.Column="0" Margin="5"
+                     ItemsSource="{Binding SensorConfigVmList_1}"
+                     SelectedIndex="{Binding SelectedNavIndex, Mode=TwoWay}">
+                </ListView>
+            </Expander>
+            <Expander Background="LightBlue" Header="Board Information" IsExpanded="True" Margin="10, 10, 10, 10">
+            </Expander>
+            <Expander Background="LightBlue" Header="Board Information" IsExpanded="True" Margin="10, 10, 10, 10">
+            </Expander>
+        </StackPanel>
+    </Grid>
+</UserControl>

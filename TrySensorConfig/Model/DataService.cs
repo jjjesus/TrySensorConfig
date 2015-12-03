@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace TrySensorConfig.Model
 {
@@ -16,6 +17,17 @@ namespace TrySensorConfig.Model
         public DataService()
         {
             _sensorConfigService = new SensorConfigService();
+        }
+
+
+        public void GetSensorConfigList(int slotNum, Action<List<SensorConfig>, Exception> callback)
+        {
+            List<SensorConfig> sensorConfigList = new List<SensorConfig>();
+            foreach (var sc in _sensorConfigService.SensorConfigList)
+            {
+                sensorConfigList.Add(sc);
+            }
+            callback(sensorConfigList, null);
         }
     }
 }

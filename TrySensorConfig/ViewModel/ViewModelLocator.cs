@@ -39,6 +39,7 @@ namespace TrySensorConfig.ViewModel
             }
 
             SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<ThresholdsViewModel>();
         }
 
         /// <summary>
@@ -54,6 +55,23 @@ namespace TrySensorConfig.ViewModel
                 return ServiceLocator.Current.GetInstance<MainViewModel>();
             }
         }
+
+
+        /// <summary>
+        /// Gets the Thresholds property.
+        /// </summary>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance",
+            "CA1822:MarkMembersAsStatic",
+            Justification = "This non-static member is needed for data binding purposes.")]
+        public ThresholdsViewModel Thresholds
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<ThresholdsViewModel>();
+            }
+        }
+
+
 
         /// <summary>
         /// Cleans up all the resources.

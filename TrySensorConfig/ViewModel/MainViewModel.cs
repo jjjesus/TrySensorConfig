@@ -13,6 +13,8 @@ namespace TrySensorConfig.ViewModel
     {
         private readonly IDataService _dataService;
 
+        public ThresholdsViewModel ThresholdsVm { get; set; }
+
         /// <summary>
         /// The <see cref="WelcomeTitle" /> property's name.
         /// </summary>
@@ -53,6 +55,7 @@ namespace TrySensorConfig.ViewModel
 
                     WelcomeTitle = item.Title;
                 });
+            this.ThresholdsVm = new ThresholdsViewModel(dataService);
         }
 
         ////public override void Cleanup()

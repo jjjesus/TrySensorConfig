@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using TrySensorConfig.Model;
 
 namespace TrySensorConfig.Design
@@ -11,6 +12,13 @@ namespace TrySensorConfig.Design
 
             var item = new DataItem("Welcome to MVVM Light [design]");
             callback(item, null);
+        }
+
+
+        public void GetSensorConfigList(int slotNum, Action<List<SensorConfig>, Exception> callback)
+        {
+            List<SensorConfig> sensorConfigList = new List<SensorConfig>();
+            callback(sensorConfigList, null);
         }
     }
 }
