@@ -20,6 +20,8 @@ namespace TrySensorConfig.ViewModel
         {
             get { return this.sensorConfigVmList_1; }
         }
+
+        public int SelectedNavIndex { get; set; }
         
 
         /// <summary>

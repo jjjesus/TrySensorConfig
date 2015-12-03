@@ -4,10 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ignore="http://www.galasoft.ch/ignore"
+        xmlns:converters="clr-namespace:TrySensorConfig.Converter"
         mc:Ignorable="d ignore"
         >
 
-    <Grid>
-        <TextBlock Text="{Binding Name}" Padding="10"/>
-    </Grid>
+    <StackPanel Orientation="Vertical">
+        <TextBox Text="{Binding Name, Mode=OneWay}" Padding="10"/>
+        <TextBox Text="{Binding LowerThreshold, Mode=TwoWay, Converter={converters:StringConverter}}" Padding="10"/>
+        <TextBox Text="{Binding UpperThreshold, Mode=TwoWay, Converter={converters:StringConverter}}" Padding="10"/>
+    </StackPanel>
 </UserControl>

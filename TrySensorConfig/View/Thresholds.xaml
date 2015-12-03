@@ -15,17 +15,23 @@
             </ResourceDictionary.MergedDictionaries>
             <DataTemplate  DataType="{x:Type ViewModel:SensorConfigViewModel}">
                 <View:SensorConfigView/>
-            </DataTemplate>            
+            </DataTemplate>
         </ResourceDictionary>
+        
     </UserControl.Resources>
 
     <Grid Height="800">
         <StackPanel>
             <Expander Background="LightSeaGreen" Header="Slot 1 Sensors" IsExpanded="True" Margin="10, 10, 10, 10">
-                <ListView x:Name="SensorConfigList_1"                    
+                <ListView  x:Name="SensorConfigList_1"                    
                      Grid.Column="0" Margin="5"
                      ItemsSource="{Binding SensorConfigVmList_1}"
                      SelectedIndex="{Binding SelectedNavIndex, Mode=TwoWay}">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"></StackPanel>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
                 </ListView>
             </Expander>
             <Expander Background="LightBlue" Header="Board Information" IsExpanded="True" Margin="10, 10, 10, 10">
