@@ -109,7 +109,9 @@ namespace TrySensorConfig.Model
                                                                {
                                                                    Level = (LevelEnum)Enum.Parse(typeof(LevelEnum), thresh.Attribute("Level").Value, true),
                                                                    Value = double.Parse(thresh.Value)
-                                                               }).ToList()
+                                                               }).ToList(),
+                                        Minimum = Double.Parse(item.Element(_defaultNS + "Range").Element(_defaultNS + "Low").Value),
+                                        Maximum = Double.Parse(item.Element(_defaultNS + "Range").Element(_defaultNS + "High").Value),
                                     };
                 foreach (var sc in sensorConfigs)
                 {

@@ -19,7 +19,7 @@ namespace TrySensorConfig.Converter
         {
             if (value != null)
             {
-                string valstring = string.Format("{0:0.00}", value);
+                string valstring = string.Format("{0:000.00}", value);
                 return valstring;
             }
             else

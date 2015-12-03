@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace TrySensorConfig.Model
 {
     public class SensorConfig
@@ -11,5 +12,7 @@ namespace TrySensorConfig.Model
         public int SlotNum { get; set; }
         public string Name { get; set; }
         public List<SensorThreshold> SensorThresholdList { get; set; }
+        public double Minimum { get; set; }
+        public double Maximum { get; set; }
     }
 }

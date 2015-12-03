@@ -1,6 +1,7 @@
 ﻿using GalaSoft.MvvmLight;
 using TrySensorConfig.Model;
 
+
 namespace TrySensorConfig.ViewModel
 {
     /// <summary>
@@ -102,6 +103,62 @@ namespace TrySensorConfig.ViewModel
 
                 SensorConfig.SensorThresholdList[1].Value = value;
                 RaisePropertyChanged(UpperThresholdPropertyName);
+            }
+        }
+
+        /// <summary>
+        /// The <see cref="Minimum" /> property's name.
+        /// </summary>
+        public const string MinimumPropertyName = "Minimum";
+
+        /// <summary>
+        /// Sets and gets the Minimum property.
+        /// Changes to that property's value raise the PropertyChanged event. 
+        /// </summary>
+        public double Minimum
+        {
+            get
+            {
+                return SensorConfig.Minimum;
+            }
+
+            set
+            {
+                if (SensorConfig.Minimum == value)
+                {
+                    return;
+                }
+
+                SensorConfig.Minimum = value;
+                RaisePropertyChanged(MinimumPropertyName);
+            }
+        }
+
+        /// <summary>
+        /// The <see cref="Maximum" /> property's name.
+        /// </summary>
+        public const string MaximumPropertyName = "Maximum";
+
+        /// <summary>
+        /// Sets and gets the Maximum property.
+        /// Changes to that property's value raise the PropertyChanged event. 
+        /// </summary>
+        public double Maximum
+        {
+            get
+            {
+                return SensorConfig.Maximum;
+            }
+
+            set
+            {
+                if (SensorConfig.Maximum == value)
+                {
+                    return;
+                }
+
+                SensorConfig.Maximum = value;
+                RaisePropertyChanged(MaximumPropertyName);
             }
         }
 

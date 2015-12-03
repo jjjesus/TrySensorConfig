@@ -8,6 +8,10 @@
             Level="Lower">10</tns:Threshold>
         <tns:Threshold
             Level="Upper">100</tns:Threshold>
+        <tns:Range>
+          <tns:Low>0</tns:Low>
+          <tns:High>200</tns:High>
+        </tns:Range>
     </tns:SensorConfig>
     <tns:SensorConfig>
         <tns:SlotNum>1</tns:SlotNum>
@@ -16,5 +20,9 @@
             Level="Lower">10</tns:Threshold>
         <tns:Threshold
             Level="Upper">100</tns:Threshold>
+        <tns:Range>
+          <tns:Low>0</tns:Low>
+          <tns:High>200</tns:High>
+        </tns:Range>
     </tns:SensorConfig>
 </tns:SensorConfigList>

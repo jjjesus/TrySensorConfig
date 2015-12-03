@@ -5,8 +5,8 @@
     
     <complexType name="SensorConfigListType">
     	<sequence>
-        <element name="SensorConfig" type="tns:SensorConfigType" minOccurs="1" maxOccurs="unbounded"></element>
-      </sequence>
+    		<element name="SensorConfig" type="tns:SensorConfigType" minOccurs="1" maxOccurs="unbounded"></element>
+    	</sequence>
     </complexType>
 
     <complexType name="SensorConfigType">
@@ -19,10 +19,13 @@
     				</restriction>
     			</simpleType>
     		</element>
-    		<element name="Name" type="string" minOccurs="1" maxOccurs="1"></element>
+    		<element name="Name" type="string" minOccurs="1"
+    			maxOccurs="1">
+    		</element>
     		<element name="Threshold" maxOccurs="unbounded"
     			minOccurs="0" type="tns:ThresholdType">
     		</element>
+    		<element name="Range" type="tns:RangeType"></element>
     	</sequence>
     </complexType>
 
@@ -41,4 +44,11 @@
     		<enumeration value="Upper"></enumeration>
     	</restriction>
     </simpleType>
+
+    <complexType name="RangeType">
+    	<sequence>
+    		<element name="Low" type="int"></element>
+    		<element name="High" type="int"></element>
+    	</sequence>
+    </complexType>
 </schema>

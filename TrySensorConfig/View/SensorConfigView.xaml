@@ -13,12 +13,12 @@
         <StackPanel Orientation="Horizontal">
             <DockPanel VerticalAlignment="Center" Margin="10">
                 <TextBlock Text="Low" DockPanel.Dock="Top" TextAlignment="Justify" />
-                <ni:SliderDouble Name="lowerThresholdSlider" Value="{Binding LowerThreshold}" Orientation="Vertical" DockPanel.Dock="Top"/>
+                <Slider Minimum="{Binding Minimum}" Maximum="{Binding Maximum}" Name="lowerThresholdSlider" Value="{Binding LowerThreshold}" Orientation="Vertical" DockPanel.Dock="Top" Height="100"/>
                 <TextBox Text="{Binding ElementName=lowerThresholdSlider, Path=Value, Converter={converters:StringConverter}, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Bottom" TextAlignment="Justify"/>
             </DockPanel>
             <DockPanel VerticalAlignment="Center" Margin="10">
                 <TextBlock Text="High" DockPanel.Dock="Top" TextAlignment="Justify" />
-                <ni:SliderDouble Name="upperThresholdSlider" Value="{Binding UpperThreshold}" Orientation="Vertical" DockPanel.Dock="Top"/>
+                <Slider Minimum="{Binding Minimum}" Maximum="{Binding Maximum}" Name="upperThresholdSlider" Value="{Binding UpperThreshold}" Orientation="Vertical" DockPanel.Dock="Top" Height="100"/>
                 <TextBox Text="{Binding ElementName=upperThresholdSlider, Path=Value, Converter={converters:StringConverter}, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Bottom" TextAlignment="Justify"/>
             </DockPanel>
         </StackPanel>
