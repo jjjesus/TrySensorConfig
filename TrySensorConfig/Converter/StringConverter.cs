@@ -17,7 +17,15 @@ namespace TrySensorConfig.Converter
 
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return value == null ? null : value.ToString();
+            if (value != null)
+            {
+                string valstring = string.Format("{0:0.00}", value);
+                return valstring;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

@@ -82,8 +82,6 @@ namespace TrySensorConfig.ViewModel
         /// </summary>
         public const string UpperThresholdPropertyName = "UpperThreshold";
 
-        private double _upperThreshold = 0;
-
         /// <summary>
         /// Sets and gets the UpperThreshold property.
         /// Changes to that property's value raise the PropertyChanged event. 

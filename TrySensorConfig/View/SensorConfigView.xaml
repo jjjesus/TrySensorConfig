@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="TrySensorConfig.View.SensorConfigView"
+﻿<UserControl xmlns:ni="http://schemas.ni.com/controls/2009/xaml/presentation"  x:Class="TrySensorConfig.View.SensorConfigView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -10,7 +10,17 @@
 
     <StackPanel Orientation="Vertical">
         <TextBox Text="{Binding Name, Mode=OneWay}" Padding="10"/>
-        <TextBox Text="{Binding LowerThreshold, Mode=TwoWay, Converter={converters:StringConverter}}" Padding="10"/>
-        <TextBox Text="{Binding UpperThreshold, Mode=TwoWay, Converter={converters:StringConverter}}" Padding="10"/>
+        <StackPanel Orientation="Horizontal">
+            <DockPanel VerticalAlignment="Center" Margin="10">
+                <TextBlock Text="Low" DockPanel.Dock="Top" TextAlignment="Justify" />
+                <ni:SliderDouble Name="lowerThresholdSlider" Value="{Binding LowerThreshold}" Orientation="Vertical" DockPanel.Dock="Top"/>
+                <TextBox Text="{Binding ElementName=lowerThresholdSlider, Path=Value, Converter={converters:StringConverter}, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Bottom" TextAlignment="Justify"/>
+            </DockPanel>
+            <DockPanel VerticalAlignment="Center" Margin="10">
+                <TextBlock Text="High" DockPanel.Dock="Top" TextAlignment="Justify" />
+                <ni:SliderDouble Name="upperThresholdSlider" Value="{Binding UpperThreshold}" Orientation="Vertical" DockPanel.Dock="Top"/>
+                <TextBox Text="{Binding ElementName=upperThresholdSlider, Path=Value, Converter={converters:StringConverter}, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Bottom" TextAlignment="Justify"/>
+            </DockPanel>
+        </StackPanel>
     </StackPanel>
 </UserControl>
