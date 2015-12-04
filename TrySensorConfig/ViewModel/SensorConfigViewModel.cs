@@ -1,4 +1,5 @@
-﻿using GalaSoft.MvvmLight;
+﻿using System.Linq;
+using GalaSoft.MvvmLight;
 using TrySensorConfig.Model;
 
 
@@ -63,12 +64,19 @@ namespace TrySensorConfig.ViewModel
         {
             get
             {
-                return SensorConfig.SensorThresholdList[0].Value;
+                SensorThreshold th = (from thresh in SensorConfig.SensorThresholdList
+                                      where thresh.Level == LevelEnum.Lower
+                                      select thresh).FirstOrDefault();
+                return th.Value;
             }
 
             set
             {
-                if (SensorConfig.SensorThresholdList[0].Value == value)
+                SensorThreshold th = (from thresh in SensorConfig.SensorThresholdList
+                                      where thresh.Level == LevelEnum.Lower
+                                      select thresh).FirstOrDefault();
+
+                if (th.Value == value)
                 {
                     return;
                 }
@@ -91,17 +99,24 @@ namespace TrySensorConfig.ViewModel
         {
             get
             {
-                return SensorConfig.SensorThresholdList[1].Value;
+                SensorThreshold th = (from thresh in SensorConfig.SensorThresholdList
+                                     where thresh.Level == LevelEnum.Upper
+                                     select thresh).FirstOrDefault();
+                return th.Value;
             }
 
             set
             {
-                if (SensorConfig.SensorThresholdList[1].Value == value)
+                SensorThreshold th = (from thresh in SensorConfig.SensorThresholdList
+                                      where thresh.Level == LevelEnum.Upper
+                                      select thresh).FirstOrDefault();
+
+                if (th.Value == value)
                 {
                     return;
                 }
 
-                SensorConfig.SensorThresholdList[1].Value = value;
+                th.Value = value;
                 RaisePropertyChanged(UpperThresholdPropertyName);
             }
         }
